@@ -1,0 +1,21 @@
+.sortable {
+  min-height: 47px;
+}
+.actionButtons a {
+  display: inline-block;
+  margin-right: 4px;
+}
+.dropMenu {
+  opacity: 1!important;
+  cursor: pointer;
+}
+.menuLabel {
+  width: 265px;
+  float: left;
+}
+.actionButtons {
+  float: right;
+}
+.actionButtons i {
+  opacity: 1;
+}

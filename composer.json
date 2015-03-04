@@ -1,0 +1,29 @@
+{
+    "name": "eaPanel/yii2-pages",
+    "description": "Convenient manager page for the application",
+    "keywords": ["yii2", "yii2-pages", "pages management", "eaPanel"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Nikolenko",
+            "email": "andruxanikolenko@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "~2.0",
+        "yiisoft/yii2-bootstrap": "~2.0"
+    },
+    "require-dev": {
+        "2amigos/yii2-transliterator-helper": "*",
+        "vova07/yii2-imperavi-widget": "*",
+        "howardEagle/Yii2-inline-widgets-behavior": "*",
+        "kartik-v/yii2-sortable-input": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "eaPanel\\pages\\": ""
+        }
+    }
+}
