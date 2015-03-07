@@ -1,6 +1,6 @@
 <?php
 
-namespace eaPanel\pages;
+namespace eapanel\pages;
 
 use yii\web\AssetBundle;
 
@@ -13,17 +13,6 @@ class Asset extends AssetBundle
 	 * @inheritdoc
 	 */
 	public $sourcePath = '@eaPanel/pages/assets';
-
-	/**
-	 * @var string Redactor language
-	 */
-	public $language;
-
-	/**
-	 * @var array Redactor plugins array
-	 */
-	public $plugins = [];
-
 	/**
 	 * @inheritdoc
 	 */
@@ -35,6 +24,7 @@ class Asset extends AssetBundle
 	 * @inheritdoc
 	 */
 	public $js = [
+        'json2.js',
 	    'pages.js'
 	];
 
@@ -42,6 +32,13 @@ class Asset extends AssetBundle
 	 * @inheritdoc
 	 */
 	public $depends = [
-		'yii\web\JqueryAsset'
+		'yii\web\JqueryAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
 	];
+    
+    public function registerAssetFiles($view)
+	{
+		parent::registerAssetFiles($view);
+	}
 }

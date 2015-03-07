@@ -1,10 +1,10 @@
 <?php
 
-namespace eaPanel\pages\controllers;
+namespace eapanel\pages\controllers;
 
 use Yii;
 use yii\web\HttpException;
-use app\modules\pages\models as models;
+use eaPanel\pages\models as models;
 use yii\helpers\Inflector;
 use dosamigos\transliterator\TransliteratorHelper;
 
@@ -71,7 +71,6 @@ class MainController extends \yii\web\Controller
         $page = new models\Page(['filename'=> \Yii::$app->request->get('id')]);
         $title = $page->getPageName();
         $content = $this->decodeWidgets($page->getPageContent());
-        
         
         if(!$page->exists())
         {

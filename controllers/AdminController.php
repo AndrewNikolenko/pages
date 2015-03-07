@@ -1,10 +1,10 @@
 <?php
 
-namespace eaPanel\pages\controllers;
+namespace eapanel\pages\controllers;
 
 use Yii;
 use yii\web\HttpException;
-use app\modules\pages\models as models;
+use eaPanel\pages\models as models;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use dosamigos\transliterator\TransliteratorHelper;
@@ -14,8 +14,8 @@ use howard\behaviors\iwb\InlineWidgetsBehavior;
 
 class AdminController extends \yii\web\Controller
 {
-    private $viewsPath = '@pages_module/views/main';
-    private $viewsPathInactive = '@pages_module/views/inactive';
+    private $viewsPath = '@app/views/main';
+    private $viewsPathInactive = '@app/views/inactive';
 
     public $layout = '/admin';
     
@@ -85,7 +85,7 @@ class AdminController extends \yii\web\Controller
         $items = [];
         foreach($pages as $page)
         {
-            $object = new \app\modules\pages\models\Page(['filename' => $page]);
+            $object = new models\Page(['filename' => $page]);
             $filename = explode('main\\',$object->filename);
             $file = file(\Yii::getAlias($this->viewsPath) . '/' . $filename[1]);
             $label = explode('PageName: ', $file[2]);
@@ -124,7 +124,7 @@ class AdminController extends \yii\web\Controller
         $inactiveItems = [];
         foreach($inactivePages as $page)
         {
-            $object = new \app\modules\pages\models\Page(['filename' => $page]);
+            $object = new models\Page(['filename' => $page]);
             $filename = explode('inactive\\',$object->filename);
             $file = file(\Yii::getAlias($this->viewsPathInactive) . '/' . $filename[1]);
             $label = explode('PageName: ', $file[2]);
@@ -138,7 +138,7 @@ class AdminController extends \yii\web\Controller
                     . '</p>' . '<div class="clearfix"></div>', 'disabled'=>true,
             ];
         }
-
+        
         return $this->render('index', [
             'items'=>$items,
             'menuItems'=>$menuItems,
@@ -201,7 +201,6 @@ class AdminController extends \yii\web\Controller
         if($model->remove())
         {
             echo 1;
-            //return $this->redirect("/eaPanel");
         }
     }
     
@@ -211,7 +210,6 @@ class AdminController extends \yii\web\Controller
         if($model->restore())
         {
             echo 1;
-            //return $this->redirect("/eaPanel");
         }
     }
 
@@ -240,7 +238,6 @@ class AdminController extends \yii\web\Controller
 
     public function getSubCatList($cat_id){
         $posts = models\Subcategory::find()->where('category_id=:category_id', [':category_id' => $cat_id])->asArray()->all();
-        //$data = \yii\helpers\ArrayHelper::map($posts, 'id', 'title');
         foreach ($posts as $i => $m) {
             $data[] = ['id' => $m['id'], 'name' => $m['title']];
         }

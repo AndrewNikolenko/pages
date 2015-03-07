@@ -5,7 +5,7 @@
  * @package pages
  */
 
-namespace eaPanel\pages\models;
+namespace eapanel\pages\models;
 
 use yii\base\Model;
 use yii\helpers\FileHelper;
@@ -26,10 +26,10 @@ class Page extends Model{
     
     private $isNewPage;
     
-    public $viewsPath='@pages_module/views/main';
+    public $viewsPath='@app/views/main';
     
-    private $inactiveViewPath='@pages_module/views/inactive';
-
+    private $inactiveViewPath='@app/views/inactive';
+    
     public function init() {
         $this->isNewPage = true;
     }
@@ -136,7 +136,7 @@ class Page extends Model{
     {
         file_put_contents(
             \Yii::getAlias($this->viewsPath) . "/" . Inflector::slug( TransliteratorHelper::process( $this->filename ), '-', 'en' ) . ".php", 
-            "<?php\n/*\nPageName: $this->filename\n*/\n/*\nPageContent: $this->filecontent\n*/\n?>\n" . '<?php namespace app\modules\eaPanel\components; ?><h1><?php echo $title; ?></h1><div><?php echo $content; ?></div><a href=\'/page/update/<?php echo $_GET["id"]; ?>\'>Редактировать</a><a href=\'/page/delete/<?php echo $_GET["id"]; ?>\'>Удалить</a>'
+            "<?php\n/*\nPageName: $this->filename\n*/\n/*\nPageContent: $this->filecontent\n*/\n?>\n" . '<?php namespace app\modules\eaPanel\components; ?><h1><?php echo $title; ?></h1><div><?php echo $content; ?></div>'
         );
     }
     

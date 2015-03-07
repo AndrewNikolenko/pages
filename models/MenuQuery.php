@@ -1,6 +1,6 @@
 <?php
 
-namespace eaPanel\pages\models;
+namespace eapanel\pages\models;
 
 use creocoder\nestedsets\NestedSetsQueryBehavior;
 

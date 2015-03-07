@@ -1,8 +1,9 @@
 <?php
 
-namespace eaPanel\pages\models;
+namespace eapanel\pages\models;
 
 use creocoder\nestedsets\NestedSetsBehavior;
+use eaPanel\pages\models as models;
 
 class Menu extends \yii\db\ActiveRecord
 {
@@ -27,7 +28,7 @@ class Menu extends \yii\db\ActiveRecord
 
     public static function find()
     {
-        return new MenuQuery(get_called_class());
+        return new models\MenuQuery(get_called_class());
     }
 }
 

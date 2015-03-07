@@ -25,5 +25,8 @@
         "psr-4": {
             "eaPanel\\pages\\": ""
         }
+    },
+    "extra": {
+        "bootstrap": "eaPanel\\pages\\Bootstrap"
     }
 }
